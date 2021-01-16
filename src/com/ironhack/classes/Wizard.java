@@ -51,4 +51,15 @@ public class Wizard extends Character implements Atacker {
         this.intelligence = intelligence;
     }
 
+    @Override
+    public String toString() {
+        return "Wizard{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", hp=" + hp +
+                ", isAlive=" + isAlive +
+                ", mana=" + mana +
+                ", intelligence=" + intelligence +
+                '}';
+    }
 }

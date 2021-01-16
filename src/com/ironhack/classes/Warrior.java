@@ -51,6 +51,16 @@ public class Warrior extends Character implements Atacker {
         this.strength = strength;
     }
 
-
+    @Override
+    public String toString() {
+        return "Warrior{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", hp=" + hp +
+                ", isAlive=" + isAlive +
+                ", stamina=" + stamina +
+                ", strength=" + strength +
+                '}';
+    }
 }
 
