@@ -27,3 +27,4 @@ public class Party {
         this.characters = characters;
     }
 }
+

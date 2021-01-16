@@ -38,3 +38,4 @@ public class Battle {
         this.graveyard = graveyard;
     }
 }
+

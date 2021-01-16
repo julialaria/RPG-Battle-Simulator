@@ -13,22 +13,26 @@ public class Wizard extends Character implements Atacker {
     }
 
     @Override
-    public void attack() {
+    public int attack() {
+        int damageAttack;
         if(this.mana <= 5){
-            fireBall();
+            damageAttack = fireBall();
         } else{
-            staffHit();
+            damageAttack = staffHit();
         }
+        return damageAttack;
     }
 
-    public void fireBall(){
-        this.hp =- this.intelligence;
+    public int fireBall(){
+        int damage = this.intelligence;
         this.mana =- 5;
+        return damage;
     }
 
-    public void staffHit(){
-        this.hp =- 2;
+    public int staffHit(){
+        int damage = 2;
         this.mana++;
+        return damage;
     }
 
     public int getMana() {

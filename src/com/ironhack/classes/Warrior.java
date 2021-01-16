@@ -13,22 +13,26 @@ public class Warrior extends Character implements Atacker {
     }
 
     @Override
-    public void attack() {
+    public int attack() {
+        int damageAttack;
         if(this.stamina >=5){
-            heavyAttack();
+            damageAttack = heavyAttack();
         } else{
-            weakAttack();
+            damageAttack = weakAttack();
         }
+        return damageAttack;
     }
 
-    public void heavyAttack(){
-        this.hp =- this.strength;
+    public int heavyAttack(){
+        int damage = this.strength;
         this.stamina =- 5;
+        return damage;
     }
 
-    public void weakAttack(){
-        this.hp =- Math.round(this.strength /2);
+    public int weakAttack(){
+        int damage = Math.round(this.strength /2);
         this.stamina++ ;
+        return damage;
     }
 
     public int getStamina() {
