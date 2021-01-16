@@ -23,6 +23,7 @@ public class Battle {
 
     public Party fight(){
         Scanner scanner = new Scanner(System.in);
+        //Mientras ambas partys tengan luchadores no se acaba la batalla
         while(firstParty.hasRemainingCharacters() && secondParty.hasRemainingCharacters()){
             //Imprimimos informacion de la pimera party para poder elegir un personaje
             System.out.println("Select a character from first party to fight by position");

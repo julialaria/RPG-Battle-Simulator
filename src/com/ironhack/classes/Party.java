@@ -12,6 +12,7 @@ public class Party {
     }
 
     public boolean hasRemainingCharacters(){
+        //Comprobamos si tienen luchadores
         return this.characters.size() > 0;
     }
 
