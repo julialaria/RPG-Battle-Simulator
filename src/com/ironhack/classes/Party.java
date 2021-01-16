@@ -16,6 +16,7 @@ public class Party {
     }
 
     public void printCharactersInfo(){
+        //imprimimos todos los personajes para elijan un luchador
         for (int i = 0; i < this.characters.size(); i++){
             System.out.println(characters.toString());
         }
