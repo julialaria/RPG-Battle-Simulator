@@ -21,10 +21,10 @@ public class Battle {
         this.secondParty = secondParty;
     }
 
-    public Party fight(){
+    public Party fight() {
         Scanner scanner = new Scanner(System.in);
         //Mientras ambas partys tengan luchadores no se acaba la batalla
-        while(firstParty.hasRemainingCharacters() && secondParty.hasRemainingCharacters()){
+        while (firstParty.hasRemainingCharacters() && secondParty.hasRemainingCharacters()) {
             //Imprimimos informacion de la pimera party para poder elegir un personaje
             System.out.println("Select a character from first party to fight by position");
             firstParty.printCharactersInfo();
@@ -32,33 +32,33 @@ public class Battle {
             //Imprimimos informacion del segundo party para poder elegir un personaje
             System.out.println("Select a character from second party to fight by position");
             secondParty.printCharactersInfo();
-            //Recuperamos los dos luchadores
             int selectedFighterSecondParty = scanner.nextInt();
+            //Recuperamos los dos luchadores
             Character firstFighter = firstParty.getCharacters().get(selectedFighterFirstParty);
             Character secondFighter = secondParty.getCharacters().get(selectedFighterSecondParty);
             //Hacemos la lucha y obtenemos el resultado, 0 empate, 1 gana primero, 2 gana segundo
-            int result = fight(firstFighter,secondFighter);
-            if(result == 1){
+            int result = fight(firstFighter, secondFighter);
+            if (result == 1) {
                 //Si gana el primero, el segundo va al graveyard y se elimina de su party
                 graveyard.add(secondFighter);
                 secondParty.removeCharacter(secondFighter);
-            } else if(result == 0){
+            } else if (result == 0) {
                 //Si gana el segundo, el primero va al graveyard y se elimina de su party
                 graveyard.add(firstFighter);
                 firstParty.removeCharacter(firstFighter);
             }
         }
         //Si hemos salido del while es que uno de los dos no tiene personajes, devolvemos el ganador.
-        if(firstParty.hasRemainingCharacters()){
+        if (firstParty.hasRemainingCharacters()) {
             return firstParty;
-        } else{
+        } else {
             return secondParty;
         }
     }
 
-    public int fight(Character firstFighter, Character secondFighter){
+    public int fight(Character firstFighter, Character secondFighter) {
         //Mientras los dos personajes esten vivos luchamos
-        while(firstFighter.isAlive && secondFighter.isAlive){
+        while (firstFighter.isAlive && secondFighter.isAlive) {
             firstFighter.getHurt(((Atacker) secondFighter).attack());
             secondFighter.getHurt(((Atacker) firstFighter).attack());
             firstFighter.checkAlive();
@@ -66,10 +66,10 @@ public class Battle {
         }
 
         //Si los dos mueren es empate.
-        if(!firstFighter.isAlive && !secondFighter.isAlive) return TIE;
-        if(firstFighter.isAlive) {
+        if (!firstFighter.isAlive && !secondFighter.isAlive) return TIE;
+        if (firstFighter.isAlive) {
             return FIRST_CHARACTER_WIN;
-        } else{
+        } else {
             return SECOND_CHARACTER_WIN;
         }
     }
