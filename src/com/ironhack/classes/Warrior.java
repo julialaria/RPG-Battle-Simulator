@@ -25,7 +25,7 @@ public class Warrior extends Character implements Atacker {
 
     public int heavyAttack(){
         int damage = this.strength;
-        this.stamina =- 5;
+        this.stamina -= 5;
         return damage;
     }
 
