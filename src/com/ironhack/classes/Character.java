@@ -13,19 +13,18 @@ public abstract class Character {
         this.isAlive = true;
     }
 
-    public boolean checkAlive(){
+    public boolean checkAlive() {
         if (this.hp > 0) {
             this.isAlive = true;
-        }
-        else{
+        } else {
             this.isAlive = false;
         }
         return this.isAlive;
     }
 
-    public void getHurt(int damageAttack){
+    public void getHurt(int damageAttack) {
         this.hp -= damageAttack;
-        if (this.hp < 0){
+        if (this.hp < 0) {
             this.hp = 0;
         }
     }
