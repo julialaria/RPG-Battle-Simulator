@@ -11,6 +11,20 @@ public class Party {
         this.characters = characters;
     }
 
+    public boolean hasRemainingCharacters(){
+        return this.characters.size() > 0;
+    }
+
+    public void printCharactersInfo(){
+        for (int i = 0; i < this.characters.size(); i++){
+            System.out.println(characters.toString());
+        }
+    }
+
+    public void removeCharacter(Character character){
+        this.characters.remove(character);
+    }
+
     public String getName() {
         return name;
     }
