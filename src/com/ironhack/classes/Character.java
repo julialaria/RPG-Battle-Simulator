@@ -13,6 +13,17 @@ public abstract class Character {
         this.isAlive = true;
     }
 
+     public int getPointsForAttack() {
+        return 0;
+    }
+
+    public void uncreasedHp(int points) {
+        this.hp -= points;
+        if (this.hp <= 0) {
+            this.isAlive = false;
+        }
+    }
+
     public int getId() {
         return id;
     }

@@ -1,8 +1,8 @@
 package com.ironhack.classes;
 
-import com.ironhack.interfaces.Atacker;
+import com.ironhack.interfaces.Attacker;
 
-public class Wizard extends Character implements Atacker {
+public class Wizard extends Character implements Attacker {
     private int mana;
     private int intelligence;
 
@@ -13,22 +13,24 @@ public class Wizard extends Character implements Atacker {
     }
 
     @Override
-    public void attack() {
-        if(this.mana <= 5){
-            fireBall();
-        } else{
-            staffHit();
+    public int getPointsForAttack() {
+        if (this.mana <= 5) {
+            return fireBall();
+        } else {
+            return staffHit();
         }
     }
 
-    public void fireBall(){
-        this.hp =- this.intelligence;
-        this.mana =- 5;
+    //El daño de una bola de fuego es igual a su inteligencia y cada bola de fuego disminuirá su maná en 5 puntos.
+    public int fireBall() {
+        this.mana = -5;
+        return this.intelligence;
     }
 
-    public void staffHit(){
-        this.hp =- 2;
+    //El daño de un golpe de bastón es igual a 2. Cada golpe de bastón recuperará su maná en 1.
+    public int staffHit() {
         this.mana++;
+        return this.intelligence;
     }
 
     public int getMana() {

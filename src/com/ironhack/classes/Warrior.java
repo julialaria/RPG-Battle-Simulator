@@ -1,8 +1,8 @@
 package com.ironhack.classes;
 
-import com.ironhack.interfaces.Atacker;
+import com.ironhack.interfaces.Attacker;
 
-public class Warrior extends Character implements Atacker {
+public class Warrior extends Character implements Attacker {
     private int stamina;
     private int strength;
 
@@ -12,23 +12,26 @@ public class Warrior extends Character implements Atacker {
         this.strength = strength;
     }
 
+      //En cada asalto, un guerrero intentará realizar un "ataque pesado". Si él no puede hacer un ataque fuerte, hará un "ataque débil".
     @Override
-    public void attack() {
-        if(this.stamina >=5){
-            heavyAttack();
-        } else{
-            weakAttack();
+    public int getPointsForAttack() {
+        if (this.stamina >= 5) {
+            return heavyAttack();
+        } else {
+            return weakAttack();
         }
     }
 
-    public void heavyAttack(){
-        this.hp =- this.strength;
-        this.stamina =- 5;
+    //El daño de un fuerte ataque es igual a su fuerza y cada golpe disminuirá su resistencia en 5 puntos.
+    public int heavyAttack() {
+        this.stamina = -5;
+        return this.strength;
     }
 
-    public void weakAttack(){
-        this.hp =- Math.round(this.strength /2);
-        this.stamina++ ;
+    //El daño de un ataque débil es la mitad de la fuerza (truncar decimales). Cada ataque débil recuperará su resistencia por 1
+    public int weakAttack() {
+        this.stamina++;
+        return Math.round(this.strength / 2);
     }
 
     public int getStamina() {
