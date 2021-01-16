@@ -42,7 +42,7 @@ public class Battle {
                 //Si gana el primero, el segundo va al graveyard y se elimina de su party
                 graveyard.add(secondFighter);
                 secondParty.removeCharacter(secondFighter);
-            } else if (result == 0) {
+            } else if (result == 2) {
                 //Si gana el segundo, el primero va al graveyard y se elimina de su party
                 graveyard.add(firstFighter);
                 firstParty.removeCharacter(firstFighter);
