@@ -47,6 +47,7 @@ public class Battle {
                 graveyard.add(firstFighter);
                 firstParty.removeCharacter(firstFighter);
             }
+            //Si es empate no se borra nadie y ninguno va al graveyard o eso entiendo
         }
         //Si hemos salido del while es que uno de los dos no tiene personajes, devolvemos el ganador.
         if (firstParty.hasRemainingCharacters()) {
