@@ -25,7 +25,7 @@ public class Wizard extends Character implements Atacker {
 
     public int fireBall(){
         int damage = this.intelligence;
-        this.mana =- 5;
+        this.mana -= 5;
         return damage;
     }
 
